@@ -1,0 +1,16 @@
+Metadata-Version: 2.0
+Name: dryscrape
+Version: 1.0
+Summary: a lightweight Javascript-aware, headless web scraping library for Python
+Home-page: https://github.com/niklasb/dryscrape
+Author: Niklas Baumstark
+Author-email: niklas.baumstark@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: lxml
+Requires-Dist: webkit-server (>=1.0)
+Requires-Dist: xvfbwrapper
+
+UNKNOWN
+
+
