@@ -1,5 +1,8 @@
 Browse your Instagram feed like a boss... in your terminal.
 
+Here it is in action: https://www.instagram.com/p/BJRGtAEBlE1/
+
+#### Screenshot:
 ![Screenshot](http://i.imgur.com/KCTHbUk.jpg)
 
 ----------------------------------------------------------------------
