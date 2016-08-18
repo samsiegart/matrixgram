@@ -102,6 +102,7 @@ class InstaBot:
         for f in os.listdir(os.path.join(cur_dir, "cache")):
             path = os.path.join("cache", f)
             os.unlink(path)
+        os.rmdir('cache')
         exit(0)
 
     def get_media_id_by_tag(self, tag):
@@ -155,6 +156,8 @@ class InstaBot:
         return img_sources
 
     def save_images(self, urls, starting):
+        if not os.path.exists('cache'):
+            os.makedirs('cache')
         for url in urls:
             #print('downloading ' + url)
             order_string = 'z'*starting

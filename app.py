@@ -274,4 +274,7 @@ def main(arg):
             win.refresh()
 
 # Ensure curses is cleaned up correctly
-curses.wrapper(main)
+try:
+    curses.wrapper(main)
+except:
+    print("Program terminated.")
