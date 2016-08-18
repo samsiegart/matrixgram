@@ -219,7 +219,7 @@ def main(arg):
     i = 0
     while True:
         if(i == max_images - 1):
-            msg = "End of signal transmission."
+            msg = "Signal terminated."
             win.addstr(rows/2, columns/2 - len(msg)/2, msg)
             padding_rows = rows/2
             padding_cols = columns/2 - len(msg)/2
@@ -271,6 +271,9 @@ def main(arg):
                         and x > padding_cols and x < padding_cols + output_cols):
                     win.addstr(y, x, ' ')
             steps += 1
+            if(i == max_images - 1):
+                msg = "Signal terminated."
+                win.addstr(rows/2, columns/2 - len(msg)/2, msg)
             win.refresh()
 
 # Ensure curses is cleaned up correctly
