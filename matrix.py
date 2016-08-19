@@ -9,7 +9,7 @@ import curses
 import cv2
 import os
 import numpy
-from instabot import InstaBot
+from oracle import Oracle
 from PIL import Image
 
 PYTHON2 = sys.version_info.major < 3
@@ -175,13 +175,13 @@ def main(arg):
     loading_string = "Loading simulation..."
     win.addstr(rows/2, columns/2 - len(loading_string)/2, loading_string)
     win.refresh()
-    bot = InstaBot(login=usr, password=pw)
+    bot = Oracle(login=usr, password=pw)
     win.erase()
     urls = bot.get_images()
     max_images = len(urls)
     highest_loaded = 3
     bot.save_images(urls[:highest_loaded], 0)
-    files = os.listdir('cache')
+    files = os.listdir('oracle/cache')
     lines = []
     for i in range(DROPPING_CHARS):
         l = FallingChar(columns, MIN_SPEED, MAX_SPEED)
@@ -190,7 +190,7 @@ def main(arg):
     win.refresh()
 
     # Get the initial compression_factor
-    img = numpy.array(Image.open('cache/' + files[0]))
+    img = numpy.array(Image.open('oracle/cache/' + files[0]))
     compression_factor = max(len(img)/rows, len(img[0])/columns)
     compression_factor_x = compression_factor
     row_compressed = compression_factor == len(img)/rows
@@ -227,7 +227,7 @@ def main(arg):
             output_cols = len(msg)
             win.refresh()
         else:
-            img = Image.open('cache/' + files[i])
+            img = Image.open('oracle/cache/' + files[i])
             img = numpy.array(img)
             if curses.is_term_resized(rows, columns):
                 rows, columns = get_winsize()
@@ -248,7 +248,7 @@ def main(arg):
         if(highest_loaded < max_images):
             bot.save_images(urls[highest_loaded:highest_loaded+1], highest_loaded)
             highest_loaded += 1
-            files = os.listdir('cache')
+            files = os.listdir('oracle/cache')
         inp = ''
         repeat = True
         while(repeat):
@@ -276,7 +276,6 @@ def main(arg):
                 win.addstr(rows/2, columns/2 - len(msg)/2, msg)
             win.refresh()
 
-# Ensure curses is cleaned up correctly
 try:
     curses.wrapper(main)
 except:
