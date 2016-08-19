@@ -33,7 +33,7 @@ Good question.
 ### Setup
 
 First make sure opencv is installed on your machine:
-  - OS X: ![This tutorial was helpful for me](http://www.mobileway.net/2015/02/14/install-opencv-for-python-on-mac-os-x/)
+  - OS X: [This tutorial was helpful for me](http://www.mobileway.net/2015/02/14/install-opencv-for-python-on-mac-os-x/)
   - Linux: You're using Linux, you should be able to figure it out yourself
 
 ```
