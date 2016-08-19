@@ -1,4 +1,4 @@
-Browse your Instagram feed like a boss... in your terminal.
+Browse your Instagram feed in your terminal, like a boss.
 
 #### Here it is in action: https://www.instagram.com/p/BJRGtAEBlE1/
 
