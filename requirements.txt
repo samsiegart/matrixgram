@@ -1,0 +1,3 @@
+nested-lookup==0.1.3
+requests==2.11.1
+Pillow==3.3.1
