@@ -28,17 +28,6 @@ _"Why the fuck would I ever want to use this?"_
 
 Good question.
 
-----------------------------------------------------------------------
-
-### Setup
-
-First make sure opencv is installed on your machine:
-  - OS X: [This tutorial was helpful for me](http://www.mobileway.net/2015/02/14/install-opencv-for-python-on-mac-os-x/)
-  - Linux: You're using Linux, you should be able to figure it out yourself
-
-```
-$ python matrix.py
-```
 
 ----------------------------------------------------------------------
 Some code was borrowed from these dope repositories. I owe you all a drink, or a juicy and delicious steak.
