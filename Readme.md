@@ -28,7 +28,19 @@ _"Why the fuck would I ever want to use this?"_
 
 Good question.
 
+----------------------------------------------------------------------
 
+### Setup
+
+#### OS X:
+ - Python: `brew install python`
+ - OpenCV: `brew tap homebrew/science`, `brew install opencv`
+ - Requirements: `pip install -r requirements.txt`
+ - Launch: `python matrix.py`
+
+#### Linux and Windows:
+
+    ¯\_(ツ)_/¯ 
 ----------------------------------------------------------------------
 Some code was borrowed from these dope repositories. I owe you all a drink, or a juicy and delicious steak.
  - https://github.com/devsnd/matrix-curses
