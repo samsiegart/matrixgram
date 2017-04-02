@@ -87,6 +87,7 @@ class Oracle:
         exit(0)
 
     def get_images(self):
+        #print "get images"
         r = self.s.get(self.url)
         text = r.text
 
@@ -99,7 +100,7 @@ class Oracle:
         all_data_end = text.find(finder_text_end, all_data_start + 1)
         json_str = text[(all_data_start + finder_text_start_len + 1):all_data_end]
         all_data = json.loads(json_str)
-        img_sources = nested_lookup('display_src', all_data)
+        img_sources = nested_lookup('display_url', all_data)
         shuffle(img_sources)
         #print("total pictures scraped: " + str(len(img_sources)))
         return img_sources
@@ -119,3 +120,4 @@ class Oracle:
             f.close()
             starting += 1
             #print('done')
+
