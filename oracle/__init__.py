@@ -52,12 +52,12 @@ class Oracle:
                                'X-Requested-With' : 'XMLHttpRequest'})
         r = self.s.get(self.url)
         self.s.headers.update({'X-CSRFToken' : r.cookies['csrftoken']})
-        time.sleep(5 * random.random())
+        time.sleep(2 * random.random())
         login = self.s.post(self.url_login, data=self.login_post,
                             allow_redirects=True)
         self.s.headers.update({'X-CSRFToken' : login.cookies['csrftoken']})
         self.csrftoken = login.cookies['csrftoken']
-        time.sleep(5 * random.random())
+        time.sleep(2 * random.random())
 
         if login.status_code == 200:
             r = self.s.get('https://www.instagram.com/')
@@ -87,14 +87,12 @@ class Oracle:
         exit(0)
 
     def get_images(self):
-        #print "get images"
         r = self.s.get(self.url)
         text = r.text
 
-        finder_text_start = ('<script type="text/javascript">'
-                             'window._sharedData = ')
+        finder_text_start = "window.__additionalDataLoaded('feed',"
         finder_text_start_len = len(finder_text_start)-1
-        finder_text_end = ';</script>'
+        finder_text_end = ");</script>"
 
         all_data_start = text.find(finder_text_start)
         all_data_end = text.find(finder_text_end, all_data_start + 1)
@@ -102,7 +100,6 @@ class Oracle:
         all_data = json.loads(json_str)
         img_sources = nested_lookup('display_url', all_data)
         shuffle(img_sources)
-        #print("total pictures scraped: " + str(len(img_sources)))
         return img_sources
 
     def save_images(self, urls, starting):
@@ -110,7 +107,6 @@ class Oracle:
         if not os.path.exists(os.path.join(cur_dir, 'cache')):
             os.makedirs(os.path.join(cur_dir, 'cache'))
         for url in urls:
-            #print('downloading ' + url)
             order_string = 'z'*starting
             res = requests.get(url, stream=True)
             if res.status_code == 200:
@@ -119,5 +115,4 @@ class Oracle:
                         f.write(chunk)
             f.close()
             starting += 1
-            #print('done')
 
