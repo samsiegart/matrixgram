@@ -1,6 +1,6 @@
 Browse your Instagram feed in your terminal, like a boss.
 
-#### Here it is in action: https://www.instagram.com/p/BJRGtAEBlE1/
+#### Here it is in action: https://youtu.be/DeA6spT5syk
 
 #### Screenshot:
 ![Screenshot](http://i.imgur.com/KCTHbUk.jpg)
